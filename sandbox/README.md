@@ -18,11 +18,18 @@ Team** role.
 
 ## Deploy to HuggingFace Spaces
 
-1. Create a new **Gradio** Space.
-2. Upload these files into the Space root:
-   - `app.py`, `requirements.txt` (this folder)
-   - `common.py`, `embed.py` (from the repo root)
-3. The Space builds and runs automatically.
+1. Create a new **Gradio** Space (free CPU tier is fine).
+2. Upload these **5 files** into the Space root:
+   - `app.py`            (this folder)
+   - `requirements.txt`  (this folder)
+   - `README.md`         (this folder — its YAML header tells HF it's a Gradio app)
+   - `common.py`         (from the repo root)
+   - `embed.py`          (from the repo root)
+3. Optionally also upload `sample_candidates.jsonl` (this folder) so reviewers
+   have a ready demo input to try.
+4. The Space builds and runs automatically. First launch downloads the embedding
+   model (~90 MB), which is fine — the no-network rule only applies to the
+   contest ranking step, not this demo.
 
 The ranking logic is identical to the repo's `rank.py`; only the input path
 differs (inline embedding instead of a precomputed cache, since the sample is
