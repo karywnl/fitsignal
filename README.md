@@ -69,7 +69,7 @@ inline - fine for <=100 candidates.
 | `rank.py` | Timed ranking step → `submission.csv` |
 | `tools/explore.py` | Streaming data profiler (how we found the traps) |
 | `tools/validate_submission.py` | Organizer-provided format validator |
-| `deck/` | Pitch deck: `fill_template.py` renders our content onto the official template → `fitsignal_deck.pdf` |
+| `docs/fitsignal.pdf` | Pitch deck (PDF) explaining the approach |
 
 ## Validate
 
@@ -79,9 +79,7 @@ python tools/validate_submission.py submission.csv
 
 ## Pitch deck
 
-```bash
-uv run --with pymupdf python deck/fill_template.py   # -> deck/fitsignal_deck.pdf
-```
+The pitch deck is `docs/fitsignal.pdf`.
 
 ## Repository layout
 
@@ -92,7 +90,7 @@ uv run --with pymupdf python deck/fill_template.py   # -> deck/fitsignal_deck.pd
 ├── common.py          # role classifier, features, honeypot guard, scoring, reasoning
 ├── embed.py           # CPU sentence-transformer helper
 ├── tools/             # data profiler + format validator
-├── deck/              # pitch deck (fills our content onto the official template)
+├── docs/              # pitch deck (fitsignal.pdf)
 ├── pyproject.toml     # dependencies (managed by uv)
 └── submission_metadata.yaml
 ```
