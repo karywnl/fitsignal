@@ -35,5 +35,5 @@ Thumbs.db
 # Team upload CSV (regenerable from rank.py)
 Alonecoder.csv
 
-# Deck preview renders
-deck/_preview*.png
+
+Alonecoder.xlsx
