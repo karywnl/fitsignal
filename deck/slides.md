@@ -1,9 +1,9 @@
 # Redrob Ranker
 ### Intelligent Candidate Discovery & Ranking — India.Runs (Redrob × Hack2Skill)
 
-Team Name: TODO
+Team Name: Alonecoder
 
-Team Leader: TODO
+Team Leader: Karthikeyan M
 
 Problem Statement: From a 100,000-candidate pool, rank the top 100 for a Senior AI
 Engineer role — by understanding who actually fits, not by matching keywords.

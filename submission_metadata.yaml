@@ -4,17 +4,17 @@
 # ============================================================================
 # Team identity
 # ============================================================================
-team_name: "TODO-your-team-name"
+team_name: "Alonecoder"
 
 primary_contact:
-  name: "TODO Full Name"
+  name: "Karthikeyan M"
   email: "karywnl@gmail.com"
-  phone: "+91-TODO"
+  phone: "+91-TODO"          # <-- add your phone before submitting
 
 team_members:
-  - name: "TODO Full Name"
+  - name: "Karthikeyan M"
     email: "karywnl@gmail.com"
-    role: "ML Engineer"
+    role: "Team Lead"
 
 # ============================================================================
 # Code and reproducibility
