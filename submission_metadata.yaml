@@ -1,0 +1,83 @@
+# Redrob Hackathon — Submission Metadata
+# Fill in the team-identity fields (marked TODO) before submitting via the portal.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "TODO-your-team-name"
+
+primary_contact:
+  name: "TODO Full Name"
+  email: "karywnl@gmail.com"
+  phone: "+91-TODO"
+
+team_members:
+  - name: "TODO Full Name"
+    email: "karywnl@gmail.com"
+    role: "ML Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/TODO_USERNAME/redrob-ranker"
+
+sandbox_link: "https://huggingface.co/spaces/TODO_USERNAME/redrob-ranker"
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+# Embeddings are produced once offline by:
+#   python precompute.py --candidates ./candidates.jsonl --artifacts ./artifacts
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Local Windows 11 (x86_64)"
+  cpu_cores: 12
+  ram_gb: 16
+  python_version: "3.11.9"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: true        # embeddings precomputed offline
+  pre_computation_time_minutes: 50      # ~50 min to embed 100k candidates on CPU
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Claude"
+
+ai_usage_summary: |
+  Used Claude (Claude Code) for data exploration, architecture discussion, and
+  code authoring/review. All design decisions, trap analysis, and scoring logic
+  were driven and verified by the team. No candidate data was sent to any hosted
+  LLM, and no LLM is called during the ranking step (per the compute constraints).
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Hybrid ranker. We first profiled all 100k candidates and found the skills array
+  is noise (every skill ~12k occurrences, uniformly sprayed) — so we ignore it and
+  read title + career-history free-text + trajectory + behavioral signals instead.
+
+  Five components: (1) semantic match of career text against the JD split into
+  positive AND negative facet queries (retrieval/ranking/eval vs research-only,
+  CV/speech, consulting); (2) a role/title classifier with explicit sub-traps for
+  AI-Research, Computer-Vision and Junior-ML titles; (3) career-text evidence of
+  production retrieval/ranking/evaluation, with consulting-only and title-chaser
+  penalties; (4) experience-band and location fit; (5) a behavioral availability
+  multiplier (response rate, recency, open-to-work) that down-weights perfect-on-
+  paper-but-unreachable candidates. A strict honeypot guard forces impossible
+  profiles to the bottom. Reasoning is generated from profile facts only.
+  Embedding is one-time offline; the ranking step is matrix math, well under 5 min.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
