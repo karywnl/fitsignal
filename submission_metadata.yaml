@@ -1,4 +1,4 @@
-# Redrob Hackathon — Submission Metadata
+# Redrob Hackathon - Submission Metadata
 # Fill in the team-identity fields (marked TODO) before submitting via the portal.
 
 # ============================================================================
@@ -58,7 +58,7 @@ ai_usage_summary: |
 # ============================================================================
 methodology_summary: |
   Hybrid ranker. We first profiled all 100k candidates and found the skills array
-  is noise (every skill ~12k occurrences, uniformly sprayed) — so we ignore it and
+  is noise (every skill ~12k occurrences, uniformly sprayed) - so we ignore it and
   read title + career-history free-text + trajectory + behavioral signals instead.
 
   Five components: (1) semantic match of career text against the JD split into

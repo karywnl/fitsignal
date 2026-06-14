@@ -1,7 +1,7 @@
-# FitSignal — Intelligent Candidate Discovery & Ranking
+# FitSignal - Intelligent Candidate Discovery & Ranking
 
 Ranks the top-100 candidates from a 100,000-candidate pool against the
-**Senior AI Engineer — Founding Team** job description, the way a great recruiter
+**Senior AI Engineer - Founding Team** job description, the way a great recruiter
 would: by reading the *role and career history*, not by counting keywords.
 
 ## TL;DR approach
@@ -16,22 +16,22 @@ The dataset is adversarial by design. We verified empirically that:
 
 So we use a **hybrid ranker**:
 
-1. **Semantic match** — a CPU sentence-transformer (`all-MiniLM-L6-v2`) embeds each
+1. **Semantic match** - a CPU sentence-transformer (`all-MiniLM-L6-v2`) embeds each
    candidate's *summary + headline + career-history descriptions* (not skills) and
    scores them against the JD broken into positive *and negative* facet queries
    (retrieval/ranking/eval vs. research-only/CV-speech/consulting anti-patterns).
-2. **Interpretable feature scoring** — a role/title classifier (the most decisive
+2. **Interpretable feature scoring** - a role/title classifier (the most decisive
    signal, with explicit sub-traps for AI-Research, Computer-Vision and Junior-ML
    titles), career-text evidence (production retrieval/ranking/eval), experience
    band, consulting-only and title-chaser penalties, and location fit.
-3. **Behavioral multiplier** — recruiter response rate, last-active recency,
+3. **Behavioral multiplier** - recruiter response rate, last-active recency,
    open-to-work, recruiter saves. A perfect-on-paper candidate who has been idle
    6 months with a 5% response rate is down-weighted: not actually hireable.
-4. **Honeypot guard** — strict impossibility checks (job duration exceeding time
+4. **Honeypot guard** - strict impossibility checks (job duration exceeding time
    since it started, many "expert" skills with 0 months used, end-before-start,
    etc.) force the ~80 planted honeypots to the bottom, keeping us well under the
    10% honeypot disqualification threshold.
-5. **Faithful reasoning** — each row's justification is generated purely from facts
+5. **Faithful reasoning** - each row's justification is generated purely from facts
    already in that candidate's profile (no hallucination), citing the decisive
    factors and one honest concern, varied across ranks.
 
@@ -57,7 +57,7 @@ python rank.py --candidates ./candidates.jsonl --out ./submission.csv
 
 `rank.py` loads the precomputed embeddings from `./artifacts`. If they are absent
 or do not cover the given candidates (e.g. the small sandbox sample), it embeds
-inline — fine for <=100 candidates.
+inline - fine for <=100 candidates.
 
 ## Files
 
@@ -69,7 +69,7 @@ inline — fine for <=100 candidates.
 | `rank.py` | Timed ranking step → `submission.csv` |
 | `tools/explore.py` | Streaming data profiler (how we found the traps) |
 | `tools/validate_submission.py` | Organizer-provided format validator |
-| `deck/` | Pitch deck source (`slides.md`) + PDF generator (`make_deck.py`) |
+| `deck/` | Pitch deck: `fill_template.py` renders our content onto the official template → `fitsignal_deck.pdf` |
 
 ## Validate
 
@@ -80,7 +80,7 @@ python tools/validate_submission.py submission.csv
 ## Pitch deck
 
 ```bash
-uv run --with reportlab python deck/make_deck.py   # -> deck/fitsignal_deck.pdf
+uv run --with pymupdf python deck/fill_template.py   # -> deck/fitsignal_deck.pdf
 ```
 
 ## Repository layout
@@ -92,7 +92,7 @@ uv run --with reportlab python deck/make_deck.py   # -> deck/fitsignal_deck.pdf
 ├── common.py          # role classifier, features, honeypot guard, scoring, reasoning
 ├── embed.py           # CPU sentence-transformer helper
 ├── tools/             # data profiler + format validator
-├── deck/              # pitch deck (markdown source + PDF generator)
+├── deck/              # pitch deck (fills our content onto the official template)
 ├── pyproject.toml     # dependencies (managed by uv)
 └── submission_metadata.yaml
 ```

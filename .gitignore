@@ -35,5 +35,5 @@ Thumbs.db
 # Team upload CSV (regenerable from rank.py)
 Alonecoder.csv
 
-# Organizer-provided reference docs (kept locally, not part of our solution)
-docs/
+# Deck preview renders
+deck/_preview*.png
