@@ -9,7 +9,7 @@ team_name: "Alonecoder"
 primary_contact:
   name: "Karthikeyan M"
   email: "karywnl@gmail.com"
-  phone: "+91-TODO"          # <-- add your phone before submitting
+  phone: "+91-8248527282"
 
 team_members:
   - name: "Karthikeyan M"
@@ -19,7 +19,7 @@ team_members:
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/karywnl/the_data_and_ai_challenge"
+github_repo: "https://github.com/karywnl/fitsignal"
 
 sandbox_link: "https://huggingface.co/spaces/karywnl/fitsignal"   # live Streamlit demo
 
